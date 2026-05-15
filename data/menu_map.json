@@ -1,0 +1,131 @@
+{
+  "geradoEm": "2026-05-15T16:26:47.914Z",
+  "totalPaginas": 25,
+  "paginas": [
+    {
+      "title": "FusionPBX Docs",
+      "path": "index.html",
+      "url": "https://docs.fusionpbx.com/en/latest/index.html"
+    },
+    {
+      "title": "Training",
+      "path": "getting_started/training.html",
+      "url": "https://docs.fusionpbx.com/en/latest/getting_started/training.html"
+    },
+    {
+      "title": "Quick Install",
+      "path": "getting_started/quick_install.html",
+      "url": "https://docs.fusionpbx.com/en/latest/getting_started/quick_install.html"
+    },
+    {
+      "title": "Let’s Encrypt",
+      "path": "getting_started/lets_encrypt.html",
+      "url": "https://docs.fusionpbx.com/en/latest/getting_started/lets_encrypt.html"
+    },
+    {
+      "title": "Provision",
+      "path": "applications/provision.html",
+      "url": "https://docs.fusionpbx.com/en/latest/applications/provision.html"
+    },
+    {
+      "title": "Security",
+      "path": "getting_started/security.html",
+      "url": "https://docs.fusionpbx.com/en/latest/getting_started/security.html"
+    },
+    {
+      "title": "Backup",
+      "path": "getting_started/backup.html",
+      "url": "https://docs.fusionpbx.com/en/latest/getting_started/backup.html"
+    },
+    {
+      "title": "Restore",
+      "path": "getting_started/restore.html",
+      "url": "https://docs.fusionpbx.com/en/latest/getting_started/restore.html"
+    },
+    {
+      "title": "Firewall",
+      "path": "firewall.html",
+      "url": "https://docs.fusionpbx.com/en/latest/firewall.html"
+    },
+    {
+      "title": "Languages",
+      "path": "getting_started/languages.html",
+      "url": "https://docs.fusionpbx.com/en/latest/getting_started/languages.html"
+    },
+    {
+      "title": "Home",
+      "path": "home.html",
+      "url": "https://docs.fusionpbx.com/en/latest/home.html"
+    },
+    {
+      "title": "Accounts",
+      "path": "accounts.html",
+      "url": "https://docs.fusionpbx.com/en/latest/accounts.html"
+    },
+    {
+      "title": "Dialplans",
+      "path": "dialplans.html",
+      "url": "https://docs.fusionpbx.com/en/latest/dialplans.html"
+    },
+    {
+      "title": "Applications",
+      "path": "applications.html",
+      "url": "https://docs.fusionpbx.com/en/latest/applications.html"
+    },
+    {
+      "title": "Status",
+      "path": "status.html",
+      "url": "https://docs.fusionpbx.com/en/latest/status.html"
+    },
+    {
+      "title": "Advanced",
+      "path": "advanced.html",
+      "url": "https://docs.fusionpbx.com/en/latest/advanced.html"
+    },
+    {
+      "title": "Hardware",
+      "path": "hardware.html",
+      "url": "https://docs.fusionpbx.com/en/latest/hardware.html"
+    },
+    {
+      "title": "Software",
+      "path": "software.html",
+      "url": "https://docs.fusionpbx.com/en/latest/software.html"
+    },
+    {
+      "title": "Additional Information",
+      "path": "additional_information.html",
+      "url": "https://docs.fusionpbx.com/en/latest/additional_information.html"
+    },
+    {
+      "title": "Contributing",
+      "path": "contributing.html",
+      "url": "https://docs.fusionpbx.com/en/latest/contributing.html"
+    },
+    {
+      "title": "Introduction",
+      "path": "doc_guide.html",
+      "url": "https://docs.fusionpbx.com/en/latest/doc_guide.html"
+    },
+    {
+      "title": "Other",
+      "path": "other.html",
+      "url": "https://docs.fusionpbx.com/en/latest/other.html"
+    },
+    {
+      "title": "Iptables",
+      "path": "firewall/iptables.html",
+      "url": "https://docs.fusionpbx.com/en/latest/firewall/iptables.html"
+    },
+    {
+      "title": "Fail2ban",
+      "path": "firewall/fail2ban.html",
+      "url": "https://docs.fusionpbx.com/en/latest/firewall/fail2ban.html"
+    },
+    {
+      "title": "PF",
+      "path": "firewall/pf.html",
+      "url": "https://docs.fusionpbx.com/en/latest/firewall/pf.html"
+    }
+  ]
+}

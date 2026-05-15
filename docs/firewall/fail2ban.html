@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fail2ban — FusionPBX Docs documentation — FusionPBX Docs PT</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 960px; margin: 0 auto; padding: 20px 40px; line-height: 1.6; color: #333; }
+    h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 8px; }
+    h2 { color: #34495e; margin-top: 32px; }
+    h3 { color: #555; }
+    pre, code { background: #f4f4f4; border: 1px solid #ddd; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+    pre { padding: 12px; overflow-x: auto; display: block; }
+    a { color: #3498db; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+    th { background: #3498db; color: white; }
+    .note, .warning, .tip { padding: 12px 16px; margin: 16px 0; border-radius: 4px; border-left: 4px solid; }
+    .note { background: #e8f4fd; border-color: #3498db; }
+    .warning { background: #fff3cd; border-color: #f39c12; }
+    .tip { background: #e8f8e8; border-color: #27ae60; }
+    nav.breadcrumb { background: #f8f8f8; padding: 8px 12px; border-radius: 4px; margin-bottom: 20px; font-size: 14px; }
+    nav.breadcrumb a { color: #3498db; }
+  </style>
+</head>
+<body>
+  <nav class="breadcrumb">
+    <a href="../index.html">← Índice Principal</a> &rsaquo; Fail2ban — FusionPBX Docs documentation
+  </nav>
+  <div class="content">
+    <div role="navigation" aria-label="Navegação da página">
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="fail2ban">
+<h1>Fail2ban</h1>
+<p>O Fail2ban também é usado para proteger SSH, FreeSWITCH, o servidor web, bem como
+outros serviços.</p>
+<p>Após a conclusão do script de instalação, a opção para qualquer coisa se
+registrar no endereço IP está <strong>HABILITADA</strong>.</p>
+<ul class="simple">
+<li><p>Se você planeja registrar dispositivos no endereço IP do FusionPBX,
+nenhuma ação adicional é necessária.</p></li>
+</ul>
+<p>No entanto, é recomendável registrar-se em um nome de domínio (FQDN), já que a maioria
+dos ataques automatizados ocorre no IP público. Registrar-se no endereço IP
+será bloqueado pelas regras do fail2ban freeswitch-ip e auth-challenge
+quando essas regras estiverem definidas como true.</p>
+<ul class="simple">
+<li><p>Para ajudar a proteger sua instalação do FusionPBX, habilite as <a class="reference external" href="http://docs.fusionpbx.com/en/latest/firewall/fail2ban.html">regras do fail2ban</a>
+[freeswitch-ip] e [auth-challenge-ip] em
+/etc/fail2ban/jail.local.</p></li>
+</ul>
+<!-- -->
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[freeswitch-ip]
+enabled  = true
+
+[auth-challenge-ip]
+enabled  = true 
+</pre></div>
+</div>
+<div class="warning docutils">
+<p class="admonition-title">Aviso</p>
+<p>Se você perceber que a interface web do FusionPBX não está carregando, verifique
+se o fail2ban está bloqueando seu IP. Ser bloqueado por qualquer regra do fail2ban
+bloqueará ssh, www e o registro de telefones se você não tiver seu
+IP no campo ignoreip= do /etc/fail2ban/jail.conf.</p>
+</div>
+<p>Você pode visualizar os endereços IP bloqueados pelo Fail2ban com o seguinte
+comando.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -L -n
+</pre></div>
+</div>
+<p>Para verificar o status de uma das jails do fail2ban</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fail2ban-client status freeswitch-ip
+</pre></div>
+</div>
+<p>Os arquivos de configuração do Fail2ban estão localizados em.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd /etc/fail2ban/
+</pre></div>
+</div>
+<p>Para excluir um IP para que ele não seja bloqueado por nenhum filtro, edite o
+arquivo <strong>jails.conf</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nano /etc/fail2ban/jail.conf
+</pre></div>
+</div>
+<p>Encontre ignoreip e adicione o endereço IP, CIDR ou hostname DNS que precisam
+ser colocados na lista de permissões. Use um espaço como delimitador entre cada um. Reinicie
+o fail2ban para aplicar as alterações na lista ignoreip.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ignoreip = 127.0.0.1/8 192.168.0.0/16
+</pre></div>
+</div>
+<div class="note docutils">
+<p class="admonition-title">Nota</p>
+<p>Para ajudar a manter os IPs e hostnames que você deseja desbloqueados, é uma boa ideia
+adicionar clientes e operadoras à lista ignoreip.</p>
+</div>
+<p>Os filtros são definidos no seguinte diretório.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/etc/fail2ban/filter.d
+</pre></div>
+</div>
+<p>Dentro do jail.local, ele aponta para filtros e define maxretry, bantime,
+logpath, portas a serem bloqueadas e muito mais.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/etc/fail2ban/jail.local
+</pre></div>
+</div>
+<p>Limpe todos os endereços bloqueados reiniciando o fail2ban.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>service fail2ban restart
+</pre></div>
+</div>
+<p>O Fail2ban registra os endereços que bloqueia com o filtro que
+o acionou.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/var/log/fail2ban.log
+</pre></div>
+</div>
+<p>Mais informações sobre o Fail2ban podem ser encontradas em
+<a class="reference external" href="http://www.fail2ban.org/wiki">http://www.fail2ban.org/wiki</a></p>
+<div class="note docutils">
+<p class="admonition-title">Nota</p>
+<p>Você pode usar um serviço de endereço IP dinâmico como o dyndns para colocar na lista de permissões um
+endereço IP dinâmico.</p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Rodapé">
+        <a href="iptables.html" class="btn btn-neutral float-left" title="Iptables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="pf.html" class="btn btn-neutral float-right" title="PF" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>© Copyright 2008-2022, Mark J Crane.
+      <span class="lastupdated">Última atualização em 24 de abril de 2026.
+      </span></p>
+  </div>
+
+  Construído com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+  </div>
+  <footer style="margin-top:40px;border-top:1px solid #ddd;padding-top:16px;font-size:12px;color:#999;">
+    Tradução automática gerada por IA (DeepSeek) — Baseado na documentação oficial FusionPBX<br>
+    <a href="https://docs.fusionpbx.com/en/latest/firewall/fail2ban.html" target="_blank">Ver original em inglês</a>
+  </footer>
+</body>
+</html>

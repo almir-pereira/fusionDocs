@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provision — FusionPBX Docs documentation — FusionPBX Docs PT</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 960px; margin: 0 auto; padding: 20px 40px; line-height: 1.6; color: #333; }
+    h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 8px; }
+    h2 { color: #34495e; margin-top: 32px; }
+    h3 { color: #555; }
+    pre, code { background: #f4f4f4; border: 1px solid #ddd; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+    pre { padding: 12px; overflow-x: auto; display: block; }
+    a { color: #3498db; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+    th { background: #3498db; color: white; }
+    .note, .warning, .tip { padding: 12px 16px; margin: 16px 0; border-radius: 4px; border-left: 4px solid; }
+    .note { background: #e8f4fd; border-color: #3498db; }
+    .warning { background: #fff3cd; border-color: #f39c12; }
+    .tip { background: #e8f8e8; border-color: #27ae60; }
+    nav.breadcrumb { background: #f8f8f8; padding: 8px 12px; border-radius: 4px; margin-bottom: 20px; font-size: 14px; }
+    nav.breadcrumb a { color: #3498db; }
+  </style>
+</head>
+<body>
+  <nav class="breadcrumb">
+    <a href="../index.html">← Índice Principal</a> &rsaquo; Provision — FusionPBX Docs documentation
+  </nav>
+  <div class="content">
+    <div role="navigation" aria-label="Navegação da página">
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="provision">
+<h1>Provisionamento</h1>
+<section id="automatic">
+<h2>Automático</h2>
+<p>O provisionamento automático está desabilitado por padrão. Isso é para dar uma chance de
+proteger o servidor de provisionamento com Autenticação HTTP ou CIDR. A Autenticação
+HTTP exige que o telefone envie o hash do nome de usuário e senha combinados para obter a configuração. CIDR é uma restrição
+de endereço IP que pode ser usada para restringir quais endereços IP têm permissão
+para obter a configuração do dispositivo. Um exemplo de CIDR é
+xxx.xxx.xxx.xxx/32, onde /32 representa um único endereço IP. Para definir um desses
+valores, vá para <strong>Avançado</strong> &gt; <strong>Configurações Padrão</strong> e encontre a categoria
+Provisionamento a partir daí, use o botão editar para definir um valor. Depois que isso for
+feito, é seguro definir enabled como true.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://docs.fusionpbx.com/en/latest/applications/provision/provision_auto_yealink.html">Yealink</a></p></li>
+<li><p><a class="reference external" href="http://docs.fusionpbx.com/en/latest/applications/provision/provision_auto_polycom.html">Polycom</a></p></li>
+<li><p><a class="reference external" href="http://docs.fusionpbx.com/en/latest/applications/provision/provision_auto_cisco.html">Cisco</a></p></li>
+<li><p><a class="reference external" href="http://docs.fusionpbx.com/en/latest/applications/provision/provision_auto_fanvil.html">Fanvil</a></p></li>
+<li><p><a class="reference external" href="http://docs.fusionpbx.com/en/latest/applications/provision/provision_auto_grandstream.html">Grandstream</a></p></li>
+<li><p><a class="reference external" href="http://docs.fusionpbx.com/en/latest/applications/provision/provision_auto_htek.html">Htek</a></p></li>
+<li><p><a class="reference external" href="http://docs.fusionpbx.com/en/latest/applications/provision/provision_auto_zoiper.html">Zoiper</a></p></li>
+</ul>
+</section>
+<section id="manual">
+<h2>Manual</h2>
+<p>Como configurar o dispositivo usando a interface web do telefone.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.fusionpbx.com/en/latest/applications/provision/provision_manual_yealink.html">Yealink</a></p></li>
+<li><p><a class="reference external" href="https://docs.fusionpbx.com/en/latest/applications/provision/provision_manual_polycom.html">Polycom</a></p></li>
+<li><p><a class="reference external" href="http://docs.fusionpbx.com/en/latest/applications/provision/provision_manual_cisco.html">Cisco</a></p></li>
+<li><p><a class="reference external" href="https://docs.fusionpbx.com/en/latest/applications/provision/provision_manual_fanvil.html">Fanvil</a></p></li>
+<li><p><a class="reference external" href="https://docs.fusionpbx.com/en/latest/applications/provision/provision_manual_grandstream.html">Grandstream</a></p></li>
+<li><p><a class="reference external" href="http://docs.fusionpbx.com/en/latest/applications/provision/provision_manual_htek.html">Htek</a></p></li>
+<li><p><a class="reference external" href="http://docs.fusionpbx.com/en/latest/applications/provision/provision_manual_snom.html">SNOM</a></p></li>
+<li><p><a class="reference external" href="https://docs.fusionpbx.com/en/latest/applications/provision/provision_manual_zoiper.html">Zoiper</a></p></li>
+</ul>
+<p>Navegue até <strong>Avançado</strong> &gt; <strong>Configurações Padrão</strong></p>
+<p>Selecione <a class="reference internal" href="../advanced/default_settings.html#provision"><span class="std std-ref">Provisionamento</span></a> na lista de categorias,
+existem algumas opções-chave que precisam ser definidas para ativar o provisionamento
+automático.</p>
+<ul class="simple">
+<li><p><strong>enabled</strong> Deve estar habilitado e definido como <strong>value true</strong> e <strong>enabled
+True</strong>. Está desabilitado por padrão.</p></li>
+<li><p><strong>http_auth_username</strong> Deve estar habilitado e definido como <strong>value true</strong> e
+<strong>enabled True</strong>. Está desabilitado por padrão. Certifique-se de usar um nome de
+usuário forte.</p></li>
+<li><p><strong>http_auth_password</strong> Deve estar habilitado e definido como <strong>value true</strong> e
+<strong>enabled True</strong>. Está desabilitado por padrão. Certifique-se de usar uma senha
+forte.</p></li>
+<li><p><strong>cidr</strong> Opção de segurança opcional para permitir que solicitações de configuração
+sejam limitadas a faixas específicas de IP versão 4. O tipo array permite múltiplas
+faixas de endereços IP.</p></li>
+</ul>
+</section>
+<section id="phone-screen-capture">
+<h2>Captura de Tela do Telefone</h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.fusionpbx.com/en/latest/applications/provision/phone_screen_capture.html">Captura de
+Tela</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><a class="reference internal" href="../accounts/devices.html"><span class="std std-doc">Clique aqui para ver como adicionar um dispositivo</span></a>.</p>
+</div>
+</section>
+<section id="phone-book">
+<h2>Catálogo Telefônico</h2>
+<p>O catálogo telefônico remoto (Agenda de Endereços) é baseado no <a class="reference internal" href="contacts.html"><span class="std std-doc">Aplicativo de Contatos</span></a> do FusionPBX.</p>
+<section id="phone-book-settings">
+<h3>Configurações do Catálogo Telefônico</h3>
+<p>Para usar o catálogo telefônico, algumas etapas são necessárias.</p>
+<ul class="simple">
+<li><p>Atribua o dispositivo a um usuário.</p></li>
+<li><p>Crie ou importe os
+<a class="reference internal" href="contacts.html"><span class="std std-doc">Contatos</span></a>.</p></li>
+<li><p>Defina <strong>Enabled</strong> como <strong>True</strong> em <a class="reference internal" href="../advanced/default_settings.html"><span class="std std-doc">Configurações
+Padrão</span></a>.</p></li>
+</ul>
+<p><img alt="image" src="../_images/fusionpbx_remote_phonebook1.png"></p>
+<ul class="simple">
+<li><p>Defina <strong>Enabled True</strong> para contact_extensions, contact_users e contact_groups em <a class="reference internal" href="../advanced/default_settings.html"><span class="std std-doc">Configurações
+Padrão</span></a>.</p></li>
+</ul>
+<p><img alt="image" src="../_images/fusionpbx_phone_book2.png"></p>
+<ul class="simple">
+<li><p>No telefone, acesse o menu para atualizar o catálogo telefônico.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Rodapé">
+        <a href="../getting_started/lets_encrypt.html" class="btn btn-neutral float-left" title="Let’s Encrypt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../getting_started/security.html" class="btn btn-neutral float-right" title="Segurança" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>© Copyright 2008-2022, Mark J Crane.
+      <span class="lastupdated">Última atualização em 24 de abril de 2026.
+      </span></p>
+  </div>
+
+  Construído com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+  </div>
+  <footer style="margin-top:40px;border-top:1px solid #ddd;padding-top:16px;font-size:12px;color:#999;">
+    Tradução automática gerada por IA (DeepSeek) — Baseado na documentação oficial FusionPBX<br>
+    <a href="https://docs.fusionpbx.com/en/latest/applications/provision.html" target="_blank">Ver original em inglês</a>
+  </footer>
+</body>
+</html>

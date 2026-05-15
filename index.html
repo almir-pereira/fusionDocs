@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FusionPBX — Documentação em Português</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; display: flex; min-height: 100vh; background: #f5f6fa; color: #333; }
+    #sidebar { width: 280px; min-width: 240px; background: #2c3e50; color: #ecf0f1; display: flex; flex-direction: column; height: 100vh; position: sticky; top: 0; overflow-y: auto; }
+    #sidebar-header { background: #1a252f; padding: 20px 16px; text-align: center; border-bottom: 1px solid #34495e; }
+    #sidebar-header h2 { font-size: 16px; color: #3498db; margin-bottom: 4px; }
+    #sidebar-header small { font-size: 11px; color: #7f8c8d; }
+    #sidebar nav { padding: 8px 0; }
+    #sidebar nav ul { list-style: none; padding: 0; }
+    #sidebar nav ul li { border-bottom: 1px solid #34495e3a; }
+    #sidebar nav ul li a { display: block; padding: 8px 16px; color: #bdc3c7; text-decoration: none; font-size: 13px; transition: background 0.2s; }
+    #sidebar nav ul li a:hover { background: #34495e; color: #fff; }
+    #sidebar-stats { margin-top: auto; padding: 12px 16px; background: #1a252f; font-size: 11px; color: #7f8c8d; text-align: center; }
+    #main { flex: 1; padding: 40px 48px; overflow-y: auto; }
+    h1 { color: #2c3e50; font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #7f8c8d; font-size: 15px; margin-bottom: 32px; }
+    .stats-bar { background: #fff; border-radius: 8px; padding: 16px 24px; display: flex; gap: 32px; align-items: center; margin-bottom: 32px; border: 1px solid #e0e0e0; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 24px; font-weight: bold; color: #3498db; }
+    .stat-label { font-size: 11px; color: #999; }
+    .progress-bar-wrap { flex: 1; background: #ecf0f1; border-radius: 4px; height: 10px; }
+    .progress-bar-fill { background: #27ae60; height: 10px; border-radius: 4px; width: 56%; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px; }
+    .card { background: #fff; border-radius: 8px; padding: 20px 16px; text-align: center; text-decoration: none; color: #333; border: 1px solid #e0e0e0; transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; align-items: center; }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .card-disabled { background: #f8f8f8; color: #aaa; border-style: dashed; cursor: default; }
+    .card-icon { font-size: 32px; margin-bottom: 10px; }
+    .card-title { font-size: 13px; font-weight: bold; line-height: 1.4; }
+    .original-link { display: inline-block; margin-bottom: 24px; color: #3498db; font-size: 13px; text-decoration: none; }
+    .original-link:hover { text-decoration: underline; }
+    footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 12px; color: #aaa; }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <div id="sidebar-header">
+      <h2>📚 FusionPBX Docs PT</h2>
+      <small>Documentação em Português</small>
+    </div>
+    <nav><ul><li><a href="docs/index.html">FusionPBX Docs<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li style="color:#aaa;">Training<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li>
+        <li style="color:#aaa;">Quick Install<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li>
+        <li style="color:#aaa;">Let’s Encrypt<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li>
+        <li style="color:#aaa;">Provision<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li>
+        <li style="color:#aaa;">Security<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li>
+        <li style="color:#aaa;">Backup<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li>
+        <li style="color:#aaa;">Restore<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li>
+        <li><a href="docs/firewall.html">Firewall<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li style="color:#aaa;">Languages<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li>
+        <li><a href="docs/home.html">Home<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/accounts.html">Accounts<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/dialplans.html">Dialplans<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/applications.html">Applications<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/status.html">Status<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/advanced.html">Advanced<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/hardware.html">Hardware<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/software.html">Software<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/additional_information.html">Additional Information<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/contributing.html">Contributing<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/doc_guide.html">Introduction<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li><a href="docs/other.html">Other<span style="background:#27ae60;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">✓</span></a></li>
+        <li style="color:#aaa;">Iptables<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li>
+        <li style="color:#aaa;">Fail2ban<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li>
+        <li style="color:#aaa;">PF<span style="background:#e74c3c;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:6px;">–</span></li></ul></nav>
+    <div id="sidebar-stats">14/25 páginas traduzidas<br>Atualizado: 15/05/2026, 14:24:35</div>
+  </div>
+  <div id="main">
+    <h1>FusionPBX — Documentação em Português</h1>
+    <p class="subtitle">Documentação completa do FusionPBX traduzida para o português brasileiro.</p>
+    <a class="original-link" href="https://docs.fusionpbx.com/en/latest/" target="_blank">🔗 Ver documentação original em inglês</a>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-num">14</div><div class="stat-label">Páginas Traduzidas</div></div>
+      <div class="stat"><div class="stat-num">25</div><div class="stat-label">Total no Menu</div></div>
+      <div class="stat"><div class="stat-num">56%</div><div class="stat-label">Progresso</div></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill"></div></div>
+    </div>
+    <h2 style="margin-bottom:16px;color:#34495e;">Seções Principais</h2>
+    <div class="cards-grid"><div class="card card-disabled"><div class="card-icon">⚙️</div><div class="card-title">Quick Install<br><small>Em breve</small></div></div>
+      <a href="docs/dialplans.html" class="card"><div class="card-icon">📞</div><div class="card-title">Dialplans</div></a></div>
+    <footer>
+      Tradução automática gerada por IA (DeepSeek) — Baseado na documentação oficial FusionPBX.<br>
+      Gerado em 15/05/2026, 14:24:35 via n8n + Playwright + DeepSeek.
+    </footer>
+  </div>
+</body>
+</html>

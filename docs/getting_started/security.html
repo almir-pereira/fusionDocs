@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security — FusionPBX Docs documentation — FusionPBX Docs PT</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 960px; margin: 0 auto; padding: 20px 40px; line-height: 1.6; color: #333; }
+    h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 8px; }
+    h2 { color: #34495e; margin-top: 32px; }
+    h3 { color: #555; }
+    pre, code { background: #f4f4f4; border: 1px solid #ddd; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+    pre { padding: 12px; overflow-x: auto; display: block; }
+    a { color: #3498db; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+    th { background: #3498db; color: white; }
+    .note, .warning, .tip { padding: 12px 16px; margin: 16px 0; border-radius: 4px; border-left: 4px solid; }
+    .note { background: #e8f4fd; border-color: #3498db; }
+    .warning { background: #fff3cd; border-color: #f39c12; }
+    .tip { background: #e8f8e8; border-color: #27ae60; }
+    nav.breadcrumb { background: #f8f8f8; padding: 8px 12px; border-radius: 4px; margin-bottom: 20px; font-size: 14px; }
+    nav.breadcrumb a { color: #3498db; }
+  </style>
+</head>
+<body>
+  <nav class="breadcrumb">
+    <a href="../index.html">← Índice Principal</a> &rsaquo; Security — FusionPBX Docs documentation
+  </nav>
+  <div class="content">
+    <div role="navigation" aria-label="Navegação da página">
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="seguranca">
+<h1>Segurança</h1>
+<p>Semelhante às fortificações medievais, é recomendado fornecer aos seus
+servidores múltiplas camadas de defesa. Certifique-se de usar Firewalls,
+Senhas fortes, SSH e mantenha seus servidores atualizados
+com todo o software utilizado. Isso inclui o sistema operacional,
+FreeSWITCH e FusionPBX.</p>
+<p>FusionPBX O script de instalação mais recente do Debian configura o
+firewall IPTables para você. As ramais do FusionPBX definem senhas fortes
+por padrão. Você pode aumentar a complexidade da senha usando as configurações
+em <strong>Avançado</strong> &gt; <strong>Configurações Padrão</strong> para aumentar o comprimento das
+senhas geradas por padrão.</p>
+<p>Firewall Embora o novo script de instalação tenha configurado o IPTables para você,
+é recomendado que você revise as configurações. No Debian e Ubuntu
+você pode verificar seu firewall com o seguinte comando.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">iptables</span> <span class="o">-</span><span class="n">L</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="#/pt-br/latest/firewall.html"><span class="xref myst">Página do Firewall</span></a></p></li>
+</ul>
+<section id="ssl-tls">
+<h2>SSL / TLS</h2>
+<p>SSL e TLS são muito necessários nas aplicações de internet atuais, desde
+VOIP até sites. O FusionPBX usa por padrão um certificado autoassinado.
+No entanto, você pode usar provedores de certificados onde pode comprar
+certificados, e também existem opções gratuitas. Com multi-inquilinos baseados em domínio,
+certificados curinga podem ser úteis. Além disso, ao decidir
+qual provedor de certificados usar, você deve consultar a documentação
+do fabricante do telefone para encontrar um que seja compatível com o
+provisionamento HTTPS.</p>
+<p><a class="reference external" href="https://letsencrypt.org/docs">Let's Encrypt</a> fornece certificados
+gratuitos para um único domínio e agora também suporta certificados
+curinga.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#/pt-br/latest/getting_started/lets_encrypt.html"><span class="xref myst">Configurar Let's Encrypt com FusionPBX</span></a></p></li>
+</ul>
+</section>
+<section id="atualizacao">
+<h2>Atualização</h2>
+<p>Problemas de segurança são corrigidos à medida que são descobertos e são atualizados para
+o master e o lançamento mais recente. As atualizações são consideradas uma parte importante
+para manter o servidor seguro. As atualizações sempre precisam ser feitas no
+sistema operacional, FreeSWITCH e FusionPBX.</p>
+<p>O script de instalação mais recente instalará os pacotes do FreeSWITCH por padrão. Para
+atualizá-los e aos pacotes do sistema operacional, execute os seguintes comandos.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span>
+</pre></div>
+</div>
+<p>Se você precisar de ajuda para atualizar com segurança, considere o <a class="reference external" href="http://www.fusionpbx.com/members">suporte
+pago</a>.</p>
+</section>
+<section id="xml-rpc">
+<h2>XML RPC</h2>
+<p>Na nova instalação, o mod[xml_rpc]{#xml_rpc} não está habilitado por padrão. É
+recomendado executar um firewall em todos os servidores FusionPBX. O script
+de instalação mais recente do Debian configura o firewall por padrão. No entanto, é
+recomendado verificar se ele está instalado e em execução.</p>
+<p>O Mod[xml_rpc]{#xml_rpc} permite executar comandos remotos no FreeSWITCH.
+Certifique-se de ter um firewall protegendo a porta XML RPC. Considere
+alterar a senha do XML RPC. A página <strong>Avançado</strong> &gt; <strong>Configurações</strong> na
+interface permite alterar a senha ou a porta. No mínimo,
+não permita acesso público à porta XML RPC.</p>
+<p>O script de instalação mais recente do Debian instala o firewall iptables que
+impede o acesso público à porta mod[xml_rpc]{#xml_rpc}. Se você
+não estiver usando um firewall no servidor, deveria, mesmo que ele seja protegido
+por um firewall externo. Algum colega de trabalho desinformado pode expor o
+servidor à internet pública em algum momento no futuro. Múltiplas
+camadas de segurança são consideradas a melhor prática.</p>
+<p>O XML RPC é seguro por padrão por 2 motivos.</p>
+<ul class="simple">
+<li><p>O módulo está desabilitado por padrão.</p></li>
+<li><p>O script de instalação protege a porta XML RPC 8787 com firewall e não permite
+acesso a ela por padrão fora de 127.0.0.1.</p></li>
+</ul>
+<p>Se você fosse iniciar o módulo e abrir a porta 8787 no firewall, você
+iria querer definir uma senha realmente forte para ele em <strong>Avançado</strong> &gt;
+<strong>Configurações</strong>. Seria recomendado usar uma VPN como OpenVPN para acessar
+o XML RPC pela porta 8787 em vez de abrir a porta 8787 no firewall.</p>
+</section>
+<section id="fail2ban">
+<h2>Fail2ban</h2>
+<p>O Fail2ban também é usado para proteger SSH, FreeSWITCH, o servidor web, bem como
+outros serviços. Você pode visualizar quaisquer endereços IP que foram bloqueados
+pelo Fail2ban com o seguinte comando.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">iptables</span> <span class="o">-</span><span class="n">L</span>
+</pre></div>
+</div>
+</section>
+<section id="ssh">
+<h2>SSH</h2>
+<p>Use senhas fortes com SSH ou, melhor ainda, use chaves SSH para melhor
+proteção dos seus servidores.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Rodapé">
+        <a href="../applications/provision.html" class="btn btn-neutral float-left" title="Provisionamento" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="backup.html" class="btn btn-neutral float-right" title="Backup" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>© Copyright 2008-2022, Mark J Crane.
+      <span class="lastupdated">Última atualização em 24 de abril de 2026.
+      </span></p>
+  </div>
+
+  Construído com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+  </div>
+  <footer style="margin-top:40px;border-top:1px solid #ddd;padding-top:16px;font-size:12px;color:#999;">
+    Tradução automática gerada por IA (DeepSeek) — Baseado na documentação oficial FusionPBX<br>
+    <a href="https://docs.fusionpbx.com/en/latest/getting_started/security.html" target="_blank">Ver original em inglês</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Install — FusionPBX Docs documentation — FusionPBX Docs PT</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 960px; margin: 0 auto; padding: 20px 40px; line-height: 1.6; color: #333; }
+    h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 8px; }
+    h2 { color: #34495e; margin-top: 32px; }
+    h3 { color: #555; }
+    pre, code { background: #f4f4f4; border: 1px solid #ddd; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+    pre { padding: 12px; overflow-x: auto; display: block; }
+    a { color: #3498db; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+    th { background: #3498db; color: white; }
+    .note, .warning, .tip { padding: 12px 16px; margin: 16px 0; border-radius: 4px; border-left: 4px solid; }
+    .note { background: #e8f4fd; border-color: #3498db; }
+    .warning { background: #fff3cd; border-color: #f39c12; }
+    .tip { background: #e8f8e8; border-color: #27ae60; }
+    nav.breadcrumb { background: #f8f8f8; padding: 8px 12px; border-radius: 4px; margin-bottom: 20px; font-size: 14px; }
+    nav.breadcrumb a { color: #3498db; }
+  </style>
+</head>
+<body>
+  <nav class="breadcrumb">
+    <a href="../index.html">← Índice Principal</a> &rsaquo; Quick Install — FusionPBX Docs documentation
+  </nav>
+  <div class="content">
+    Aqui está o HTML traduzido para o português brasileiro, mantendo toda a estrutura e termos técnicos:
+
+```html
+<div role="navigation" aria-label="Navegação de página">
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="instalacao-rapida">
+<h1>Instalação Rápida</h1>
+<p><img alt="imagem" src="../_images/logo_right.png"></p>
+<br>
+<p>Bem-vindo ao guia de instalação do FusionPBX.</p>
+<br>
+<p>O FusionPBX pode ser instalado em vários sistemas operacionais diferentes.
+No entanto, este guia assume que você está começando com uma instalação <strong>mínima</strong>
+do Debian 12 com SSH habilitado. Esta instalação foi projetada para ser
+rápida, simples e modular, e geralmente leva 5 minutos ou menos.
+Os tempos de instalação dependem de fatores como CPU, RAM, I/O de disco e
+largura de banda. Vídeo de instalação: <a class="reference external" href="https://youtu.be/XpiVyHqLaus">https://youtu.be/XpiVyHqLaus</a></p>
+<div style="text-align: center; margin-bottom: 2em;">
+<iframe width="100%" height="350" src="https://www.youtube.com/embed/XpiVyHqLaus" frameborder="0" ;="" encrypted-media"="" allowfullscreen=""></iframe>
+</div>
+<p><strong>1.</strong> Execute os seguintes comandos como root. O script instala
+FusionPBX, o pacote de release do FreeSWITCH e suas dependências, iptables,
+Fail2ban, NGINX, PHP-FPM e PostgreSQL.</p>
+<p>Comece com uma instalação <strong>mínima</strong> do Debian 12 com SSH habilitado. Cole
+os seguintes comandos na janela do console <strong>um por vez</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">wget</span> <span class="o">-</span><span class="n">O</span> <span class="o">-</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">fusionpbx</span><span class="o">/</span><span class="n">fusionpbx</span><span class="o">-</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">debian</span><span class="o">/</span><span class="n">pre</span><span class="o">-</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">sh</span><span class="p">;</span> 
+</pre></div>
+</div>
+<br>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">fusionpbx</span><span class="o">-</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span><span class="o">/</span><span class="n">debian</span> <span class="o">&amp;&amp;</span> <span class="o">./</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span>    
+</pre></div>
+</div>
+<br>
+<p>Se estiver usando <strong>Debian em containers Proxmox LXC</strong>, execute o seguinte
+<strong>ANTES</strong> de iniciar a instalação do FusionPBX.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span>
+    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">systemd</span>
+    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">systemd</span><span class="o">-</span><span class="n">sysv</span>
+    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ca</span><span class="o">-</span><span class="n">certificates</span>
+    <span class="n">reboot</span>
+</pre></div>
+</div>
+<br>
+<p><strong>2.</strong> Ao final da instalação, o script instruirá você a acessar
+o endereço IP do servidor (ou nome de domínio) no seu navegador web para
+fazer login. O script também fornecerá um nome de usuário e uma senha
+aleatória segura para você usar. Isso pode ser alterado após o login. O
+script de instalação cria o banco de dados fusionpbx. Se você precisar da
+senha do banco de dados, ela está localizada em /etc/fusionpbx/config.php .</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Instalação</span> <span class="n">concluída</span><span class="o">.</span>
+
+    <span class="n">Use</span> <span class="n">um</span> <span class="n">navegador</span> <span class="n">web</span> <span class="n">para</span> <span class="n">fazer</span> <span class="n">login</span><span class="o">.</span>
+       <span class="n">nome</span> <span class="n">de</span> <span class="n">domínio</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">000.000.000.000</span>
+       <span class="n">usuário</span><span class="p">:</span> <span class="n">admin</span>
+       <span class="n">senha</span><span class="p">:</span> <span class="n">zxP5yatwMxejKXd</span>
+
+    <span class="n">O</span> <span class="n">nome</span> <span class="n">de</span> <span class="n">domínio</span> <span class="n">no</span> <span class="n">navegador</span> <span class="ow">é</span> <span class="n">usado</span> <span class="n">por</span> <span class="n">padrão</span> <span class="k">como</span> <span class="n">parte</span> <span class="n">da</span> <span class="n">autenticação</span><span class="o">.</span>
+    <span class="n">Se</span> <span class="n">você</span> <span class="n">precisar</span> <span class="n">fazer</span> <span class="n">login</span> <span class="n">em</span> <span class="n">um</span> <span class="n">domínio</span> <span class="n">diferente</span><span class="p">,</span> <span class="n">use</span> <span class="n">usuário</span><span class="nd">@dominio</span><span class="o">.</span>
+       <span class="n">usuário</span><span class="p">:</span> <span class="n">admin</span><span class="nd">@x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span>
+
+    <span class="n">Informações</span> <span class="n">adicionais</span><span class="o">.</span>
+       <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fusionpbx</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">support</span><span class="o">.</span><span class="n">php</span>
+       <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">fusionpbx</span><span class="o">.</span><span class="n">com</span>
+       <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">fusionpbx</span><span class="o">.</span><span class="n">com</span>
+       <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">fusionpbx</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">training</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
+</div>
+<br>
+<p><img alt="imagem" src="../_images/ilogin.png"></p>
+<br>
+<p>Após a conclusão do script de instalação, vá para o seu navegador web e faça login
+com as informações fornecidas pelo script de instalação.</p>
+<p>Após a conclusão do script de instalação, a opção para qualquer coisa
+se registrar no endereço IP está <strong>HABILITADA</strong>.</p>
+<ul class="simple">
+<li><p>Se você</p></li>
+</ul>
+</div>
+</div>
+```
+plan on registering devices to the FusionPBX ip address then
+no further action is required.</p></li>
+</ul>
+<p>No entanto, é recomendável registrar-se a um nome de domínio (FQDN), pois a maioria
+dos ataques automatizados ocorre contra o IP público. Registrar-se ao endereço IP
+será bloqueado pelas regras do fail2ban freeswitch-ip e auth-challenge
+quando essas regras estiverem definidas como true.</p>
+<ul class="simple">
+<li><p>Para ajudar a proteger sua instalação do FusionPBX, habilite as <a class="reference external" href="http://docs.fusionpbx.com/en/latest/firewall/fail2ban.html">regras do fail2ban</a>
+[freeswitch-ip] e [auth-challenge-ip] em
+/etc/fail2ban/jail.local.</p></li>
+</ul>
+<!-- -->
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[freeswitch-ip]
+enabled  = true
+
+[auth-challenge-ip]
+enabled  = true
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Rodapé">
+        <a href="training.html" class="btn btn-neutral float-left" title="Treinamento" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="lets_encrypt.html" class="btn btn-neutral float-right" title="Let’s Encrypt" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>© Copyright 2008-2022, Mark J Crane.
+      <span class="lastupdated">Última atualização em 24 de abril de 2026.
+      </span></p>
+  </div>
+
+  Construído com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+  </div>
+  <footer style="margin-top:40px;border-top:1px solid #ddd;padding-top:16px;font-size:12px;color:#999;">
+    Tradução automática gerada por IA (DeepSeek) — Baseado na documentação oficial FusionPBX<br>
+    <a href="https://docs.fusionpbx.com/en/latest/getting_started/quick_install.html" target="_blank">Ver original em inglês</a>
+  </footer>
+</body>
+</html>
